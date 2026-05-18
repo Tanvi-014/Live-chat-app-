@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>NEURAL_LINK_CHAT — Design Previews</title>
+<link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet" />
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+  font-family: 'Share Tech Mono', monospace;
+  background: #0a0a0a;
+  color: #fff;
+  padding: 40px 20px;
+}
+h1 {
+  font-family: 'Orbitron', sans-serif;
+  text-align: center;
+  font-size: 28px;
+  letter-spacing: 6px;
+  color: #00ffff;
+  text-shadow: 0 0 20px #00ffff;
+  margin-bottom: 10px;
+}
+.subtitle {
+  text-align: center;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 3px;
+  font-size: 13px;
+  margin-bottom: 50px;
+}
+.previews {
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.preview-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+.label {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 13px;
+  letter-spacing: 3px;
+  padding: 8px 20px;
+  border-radius: 4px;
+}
+
+/* ===== DESIGN 1: NEON NOIR ===== */
+.d1 { width: 380px; height: 580px; background: rgba(5,5,15,0.97); border: 2px solid #00ffff; border-radius: 16px; box-shadow: 0 0 20px #00ffff, 0 0 60px rgba(0,255,255,0.3), 0 0 100px rgba(255,0,255,0.15); display:flex; flex-direction:column; overflow:hidden; position:relative; }
+.d1::before { content:''; position:absolute; inset:0; background: linear-gradient(rgba(0,255,255,0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255,0,255,0.03) 1px, transparent 1px); background-size:30px 30px; pointer-events:none; }
+.d1 .hdr { padding:16px 20px; border-bottom:1px solid rgba(0,255,255,0.3); display:flex; justify-content:space-between; align-items:center; background:rgba(0,255,255,0.03); }
+.d1 .hdr h2 { font-family:'Orbitron',sans-serif; font-size:13px; color:#00ffff; letter-spacing:4px; text-shadow:0 0 10px #00ffff, 0 0 20px #00ffff; }
+.d1 .hdr .st { font-size:11px; color:#00ff88; text-shadow:0 0 8px #00ff88; animation:pulse 1.5s infinite; }
+.d1 .inp { padding:14px 16px; border-bottom:1px solid rgba(255,0,255,0.2); display:flex; flex-direction:column; gap:10px; }
+.d1 .inp input { width:100%; padding:10px 14px; background:rgba(20,20,30,0.9); border:1px solid #ff00ff; border-radius:8px; color:#fff; font-family:'Share Tech Mono',monospace; font-size:12px; outline:none; }
+.d1 .inp input:focus { box-shadow:0 0 10px #ff00ff; }
+.d1 .inp .row { display:flex; gap:8px; }
+.d1 .inp .row input { flex:1; }
+.d1 .inp button { padding:10px 16px; background:linear-gradient(135deg,#ff00ff,#00ffff); border:none; border-radius:8px; color:#000; font-family:'Share Tech Mono',monospace; font-weight:bold; font-size:11px; letter-spacing:2px; cursor:pointer; }
+.d1 .msgs { flex:1; padding:16px; display:flex; flex-direction:column; gap:10px; overflow:hidden; }
+.d1 .msg { display:flex; }
+.d1 .msg.me { justify-content:flex-end; }
+.d1 .bub { max-width:75%; padding:10px 14px; border-radius:12px; font-size:12px; line-height:1.5; }
+.d1 .bub.me { background:linear-gradient(135deg,#00ffff,#0088ff); color:#000; box-shadow:0 0 12px rgba(0,255,255,0.8); }
+.d1 .bub.other { background:linear-gradient(135deg,#ff00ff,#7700aa); box-shadow:0 0 12px rgba(255,0,255,0.6); }
+.d1 .bub strong { display:block; font-size:10px; margin-bottom:4px; opacity:0.8; }
+.d1-label { background:rgba(0,255,255,0.1); color:#00ffff; border:1px solid #00ffff; }
+
+/* ===== DESIGN 2: BLOOD CHROME ===== */
+.d2-wrap { position:relative; width:380px; height:580px; }
+.d2-wrap::before { content:''; position:absolute; inset:0; background:repeating-linear-gradient(0deg,transparent,transparent 2px,rgba(255,0,60,0.03) 2px,rgba(255,0,60,0.03) 4px); pointer-events:none; z-index:10; }
+.d2 { width:380px; height:580px; background:linear-gradient(160deg,#120000,#0d0000,#1a0500); border:2px solid #ff003c; clip-path:polygon(0 0, calc(100% - 20px) 0, 100% 20px, 100% 100%, 20px 100%, 0 calc(100% - 20px)); display:flex; flex-direction:column; overflow:hidden; box-shadow:0 0 25px rgba(255,0,60,0.5), 0 0 60px rgba(255,0,60,0.2); position:relative; }
+.d2 .hdr { padding:16px 20px; border-bottom:1px solid rgba(255,0,60,0.4); display:flex; justify-content:space-between; align-items:center; background:rgba(255,0,60,0.05); }
+.d2 .hdr h2 { font-family:'Orbitron',sans-serif; font-size:13px; color:#fff; letter-spacing:4px; text-shadow:0 0 10px #ff003c; }
+.d2 .hdr .st { font-size:10px; color:#ff6600; text-shadow:0 0 8px #ff6600; animation:pulse 1.5s infinite; }
+.d2 .inp { padding:14px 16px; border-bottom:1px solid rgba(255,0,60,0.2); display:flex; flex-direction:column; gap:10px; }
+.d2 .inp input { width:100%; padding:10px 14px; background:rgba(30,5,5,0.95); border:1px solid rgba(255,0,60,0.6); border-left:3px solid #ff003c; color:#fff; font-family:'Share Tech Mono',monospace; font-size:12px; outline:none; clip-path:polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%); }
+.d2 .inp .row { display:flex; gap:8px; }
+.d2 .inp .row input { flex:1; }
+.d2 .inp button { padding:10px 16px; background:linear-gradient(135deg,#ff003c,#aa0022); border:1px solid #ff003c; color:#fff; font-family:'Share Tech Mono',monospace; font-weight:bold; font-size:11px; letter-spacing:2px; cursor:pointer; clip-path:polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px)); box-shadow:0 0 10px rgba(255,0,60,0.5); }
+.d2 .msgs { flex:1; padding:16px; display:flex; flex-direction:column; gap:10px; overflow:hidden; }
+.d2 .msg { display:flex; }
+.d2 .msg.me { justify-content:flex-end; }
+.d2 .bub { max-width:75%; padding:10px 14px; font-size:12px; line-height:1.5; }
+.d2 .bub.me { background:linear-gradient(135deg,#ff003c,#ff6600); color:#fff; box-shadow:0 0 12px rgba(255,0,60,0.6); clip-path:polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 0 100%); }
+.d2 .bub.other { background:rgba(40,10,10,0.9); border:1px solid rgba(255,0,60,0.4); color:#ccc; clip-path:polygon(8px 0, 100% 0, 100% calc(100% - 8px), calc(100% - 0px) 100%, 0 100%, 0 8px); }
+.d2 .bub strong { display:block; font-size:10px; margin-bottom:4px; opacity:0.7; color:#ff6600; }
+.d2-label { background:rgba(255,0,60,0.1); color:#ff003c; border:1px solid #ff003c; }
+
+/* ===== DESIGN 3: GHOST PROTOCOL ===== */
+.d3-wrap { width:380px; height:580px; position:relative; border-radius:16px; overflow:hidden; }
+.d3-bg { position:absolute; inset:0; background:linear-gradient(135deg,#060b1a,#0d0a2e,#060b1a); }
+.d3-bg::before { content:''; position:absolute; inset:0; background:radial-gradient(ellipse at 20% 20%, rgba(96,165,250,0.15) 0%, transparent 60%), radial-gradient(ellipse at 80% 80%, rgba(167,139,250,0.15) 0%, transparent 60%), radial-gradient(ellipse at 50% 50%, rgba(45,212,191,0.08) 0%, transparent 70%); }
+.d3 { width:100%; height:100%; background:rgba(255,255,255,0.04); border:1px solid rgba(96,165,250,0.4); border-radius:16px; backdrop-filter:blur(20px); display:flex; flex-direction:column; overflow:hidden; box-shadow:0 0 30px rgba(96,165,250,0.2), inset 0 0 30px rgba(96,165,250,0.05); position:relative; z-index:1; }
+.d3 .hdr { padding:16px 20px; border-bottom:1px solid rgba(96,165,250,0.2); display:flex; justify-content:space-between; align-items:center; background:rgba(96,165,250,0.05); }
+.d3 .hdr h2 { font-family:'Orbitron',sans-serif; font-size:13px; color:#fff; letter-spacing:4px; text-shadow:0 0 15px rgba(96,165,250,0.8); }
+.d3 .hdr .st { font-size:10px; color:#2dd4bf; text-shadow:0 0 8px #2dd4bf; animation:pulse 1.5s infinite; }
+.d3 .inp { padding:14px 16px; border-bottom:1px solid rgba(96,165,250,0.15); display:flex; flex-direction:column; gap:10px; }
+.d3 .inp input { width:100%; padding:10px 14px; background:rgba(255,255,255,0.05); border:1px solid rgba(96,165,250,0.3); border-radius:10px; color:#fff; font-family:'Share Tech Mono',monospace; font-size:12px; outline:none; backdrop-filter:blur(10px); }
+.d3 .inp input:focus { border-color:rgba(96,165,250,0.8); box-shadow:0 0 10px rgba(96,165,250,0.3); }
+.d3 .inp .row { display:flex; gap:8px; }
+.d3 .inp .row input { flex:1; }
+.d3 .inp button { padding:10px 16px; background:rgba(96,165,250,0.15); border:1px solid rgba(96,165,250,0.5); border-radius:10px; color:#60a5fa; font-family:'Share Tech Mono',monospace; font-size:11px; letter-spacing:2px; cursor:pointer; backdrop-filter:blur(10px); transition:0.3s; }
+.d3 .inp button:hover { background:rgba(96,165,250,0.25); }
+.d3 .msgs { flex:1; padding:16px; display:flex; flex-direction:column; gap:10px; overflow:hidden; }
+.d3 .msg { display:flex; }
+.d3 .msg.me { justify-content:flex-end; }
+.d3 .bub { max-width:75%; padding:10px 14px; border-radius:14px; font-size:12px; line-height:1.5; backdrop-filter:blur(10px); }
+.d3 .bub.me { background:rgba(96,165,250,0.2); border:1px solid rgba(96,165,250,0.4); color:#fff; box-shadow:0 0 15px rgba(96,165,250,0.2); }
+.d3 .bub.other { background:rgba(167,139,250,0.15); border:1px solid rgba(167,139,250,0.3); color:#fff; box-shadow:0 0 15px rgba(167,139,250,0.15); }
+.d3 .bub strong { display:block; font-size:10px; margin-bottom:4px; color:#a78bfa; opacity:0.9; }
+.d3-label { background:rgba(96,165,250,0.1); color:#60a5fa; border:1px solid rgba(96,165,250,0.5); }
+
+/* Particles for d3 */
+.particle { position:absolute; border-radius:50%; animation:float linear infinite; pointer-events:none; }
+@keyframes float { 0%{transform:translateY(0) scale(1);opacity:0.7} 100%{transform:translateY(-600px) scale(0.3);opacity:0} }
+@keyframes pulse { 0%,100%{opacity:0.4} 50%{opacity:1} }
+
+.pick-label { text-align:center; font-size:12px; color:rgba(255,255,255,0.5); letter-spacing:2px; margin-top: 6px; }
+.number { font-family:'Orbitron',sans-serif; font-size:32px; font-weight:900; text-align:center; }
+.n1 { color:#00ffff; text-shadow:0 0 20px #00ffff; }
+.n2 { color:#ff003c; text-shadow:0 0 20px #ff003c; }
+.n3 { color:#60a5fa; text-shadow:0 0 20px #60a5fa; }
+</style>
+</head>
+<body>
+<h1>NEURAL_LINK_CHAT</h1>
+<p class="subtitle">// DESIGN PREVIEWS — PICK YOUR AESTHETIC //</p>
+
+<div class="previews">
+
+  <!-- DESIGN 1 -->
+  <div class="preview-card">
+    <div class="number n1">01</div>
+    <div class="d1">
+      <div class="hdr">
+        <h2>NEURAL_LINK_CHAT</h2>
+        <span class="st">● ONLINE</span>
+      </div>
+      <div class="inp">
+        <input value="GHOST_USER_7" readonly placeholder="ENTER HANDLE" />
+        <div class="row">
+          <input value="Transmit encrypted data..." readonly placeholder="TRANSMIT MESSAGE..." />
+          <button>SEND</button>
+        </div>
+      </div>
+      <div class="msgs">
+        <div class="msg other"><div class="bub other"><strong>NETRUNNER_X</strong>Access granted. Firewall bypassed.</div></div>
+        <div class="msg me"><div class="bub me"><strong>GHOST_USER_7</strong>Uploading payload now.</div></div>
+        <div class="msg other"><div class="bub other"><strong>NETRUNNER_X</strong>ICE detected on layer 4. Proceed with caution.</div></div>
+        <div class="msg me"><div class="bub me"><strong>GHOST_USER_7</strong>Copy that. Rerouting through proxy nodes.</div></div>
+        <div class="msg other"><div class="bub other"><strong>NETRUNNER_X</strong>Connection stable. You're in.</div></div>
+      </div>
+    </div>
+    <span class="label d1-label">🔵 NEON NOIR</span>
+    <p class="pick-label">Cyan · Magenta · Classic Hacker</p>
+  </div>
+
+  <!-- DESIGN 2 -->
+  <div class="preview-card">
+    <div class="number n2">02</div>
+    <div class="d2-wrap">
+      <div class="d2">
+        <div class="hdr">
+          <h2>NEURAL_LINK_CHAT</h2>
+          <span class="st">⚠ ACTIVE</span>
+        </div>
+        <div class="inp">
+          <input value="SOLDIER_V" readonly placeholder="ENTER HANDLE" />
+          <div class="row">
+            <input value="Target acquired. Engage." readonly placeholder="TRANSMIT MESSAGE..." />
+            <button>SEND</button>
+          </div>
+        </div>
+        <div class="msgs">
+          <div class="msg other"><div class="bub other"><strong>CMD_ZERO</strong>Operation blackout initiated.</div></div>
+          <div class="msg me"><div class="bub me"><strong>SOLDIER_V</strong>Moving to extraction point.</div></div>
+          <div class="msg other"><div class="bub other"><strong>CMD_ZERO</strong>Hostiles at 3 o'clock. Hold position.</div></div>
+          <div class="msg me"><div class="bub me"><strong>SOLDIER_V</strong>Engaging. Cover me.</div></div>
+          <div class="msg other"><div class="bub other"><strong>CMD_ZERO</strong>Package secured. Fall back now.</div></div>
+        </div>
+      </div>
+    </div>
+    <span class="label d2-label">🔴 BLOOD CHROME</span>
+    <p class="pick-label">Red Neon · Cut Corners · Military</p>
+  </div>
+
+  <!-- DESIGN 3 -->
+  <div class="preview-card">
+    <div class="number n3">03</div>
+    <div class="d3-wrap">
+      <div class="d3-bg">
+        <div class="particle" style="width:3px;height:3px;background:#60a5fa;left:15%;animation-duration:8s;animation-delay:0s;top:90%"></div>
+        <div class="particle" style="width:2px;height:2px;background:#a78bfa;left:40%;animation-duration:12s;animation-delay:2s;top:95%"></div>
+        <div class="particle" style="width:4px;height:4px;background:#2dd4bf;left:70%;animation-duration:9s;animation-delay:4s;top:88%"></div>
+        <div class="particle" style="width:2px;height:2px;background:#60a5fa;left:85%;animation-duration:11s;animation-delay:1s;top:92%"></div>
+        <div class="particle" style="width:3px;height:3px;background:#a78bfa;left:55%;animation-duration:7s;animation-delay:3s;top:97%"></div>
+      </div>
+      <div class="d3">
+        <div class="hdr">
+          <h2>NEURAL_LINK_CHAT</h2>
+          <span class="st">◈ LINKED</span>
+        </div>
+        <div class="inp">
+          <input value="PHANTOM_9" readonly placeholder="ENTER HANDLE" />
+          <div class="row">
+            <input value="Signal locked. Transmitting..." readonly placeholder="TRANSMIT MESSAGE..." />
+            <button>SEND</button>
+          </div>
+        </div>
+        <div class="msgs">
+          <div class="msg other"><div class="bub other"><strong>ARIA_AI</strong>Neural handshake complete.</div></div>
+          <div class="msg me"><div class="bub me"><strong>PHANTOM_9</strong>Quantum tunnel established.</div></div>
+          <div class="msg other"><div class="bub other"><strong>ARIA_AI</strong>Memory fragment received. Decoding...</div></div>
+          <div class="msg me"><div class="bub me"><strong>PHANTOM_9</strong>Uploading consciousness backup.</div></div>
+          <div class="msg other"><div class="bub other"><strong>ARIA_AI</strong>Transfer complete. You are safe.</div></div>
+        </div>
+      </div>
+    </div>
+    <span class="label d3-label">🔷 GHOST PROTOCOL</span>
+    <p class="pick-label">Glassmorphism · Holographic · Ethereal</p>
+  </div>
+
+</div>
+
+<p style="text-align:center;margin-top:40px;color:rgba(255,255,255,0.3);letter-spacing:3px;font-size:12px;">// REPLY WITH 01 · 02 · OR 03 TO IMPLEMENT //</p>
+</body>
+</html>
