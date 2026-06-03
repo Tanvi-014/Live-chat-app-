@@ -52,7 +52,7 @@ export default function App() {
   useEffect(() => {
     const saved = localStorage.getItem("chat_token")
     if (!saved) return
-    fetch("http://localhost:3000/api/verify", {
+    fetch("https://live-chat-app-ntz5.onrender.com/api/verify", {
       headers: { Authorization: `Bearer ${saved}` }
     })
       .then(r => r.ok ? r.json() : null)
@@ -67,7 +67,7 @@ export default function App() {
   useEffect(() => {
     if (!me || !token) return
 
-    socket = io("http://localhost:3000", { auth: { token } })
+    socket = io("https://live-chat-app-ntz5.onrender.com", { auth: { token } })
 
     socket.on("connect", () => {
       setIsConnected(true)
@@ -199,7 +199,7 @@ export default function App() {
       ? { username: authUser.trim(), password: authPass, color: authColor }
       : { username: authUser.trim(), password: authPass }
     try {
-      const r = await fetch(`http://localhost:3000/api/${authMode}`, {
+      const r = await fetch(`https://live-chat-app-ntz5.onrender.com/api/${authMode}`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body)
