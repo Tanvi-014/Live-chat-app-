@@ -9,8 +9,12 @@ const path     = require("path")
 process.on("uncaughtException",  err => console.error("[uncaughtException]",  err.message))
 process.on("unhandledRejection", err => console.error("[unhandledRejection]", err?.message))
 
+console.log("STEP 1 - imports done")
+
 // ── DB ──────────────────────────────────────────────────────────────────────
+console.log("STEP 2 - opening database")
 const db = new Database(path.join(__dirname, "chat.db"))
+console.log("STEP 3 - database opened")
 db.exec(`
   CREATE TABLE IF NOT EXISTS users (
     id       INTEGER PRIMARY KEY AUTOINCREMENT,
@@ -40,6 +44,7 @@ db.exec(`
     createdBy TEXT NOT NULL
   );
 `)
+console.log("STEP 4 - schema created")
 
 // ── Migrations ───────────────────────────────────────────────────────────────
 try {
@@ -58,6 +63,8 @@ try {
   if (!cols.includes("color"))
     db.exec("ALTER TABLE messages ADD COLUMN color TEXT NOT NULL DEFAULT '#3b82f6'")
 } catch (e) { console.error("Migration:", e.message) }
+
+console.log("STEP 5 - migrations done")
 
 // Seed "general" room
 db.prepare("INSERT OR IGNORE INTO rooms (name,created,createdBy) VALUES (?,?,?)").run("general", Date.now(), "system")
@@ -117,6 +124,7 @@ function getDMContacts(username) {
 // ── Express ──────────────────────────────────────────────────────────────────
 const app    = express()
 const server = http.createServer(app)
+console.log("STEP 6 - express created")
 app.use(cors({ origin: true }))
 app.use(express.json())
 
@@ -294,6 +302,7 @@ io.on("connection", (socket) => {
 
 const PORT = process.env.PORT || 3000;
 
+console.log("STEP 7 - about to listen")
 server.listen(PORT, () => {
   console.log(`🟢 Server running on port ${PORT}`);
 });
